@@ -1,0 +1,48 @@
+{
+  "applications": ["catalog", "specification"],
+  "changelogDate": "20221029214845",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "resource_specification_ref",
+  "fields": [
+    {
+      "fieldName": "href",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "id",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "version",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "schemaLocation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ResourceSpecificationRef",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "productSpecification",
+      "otherEntityRelationshipName": "resourceSpecificationRef",
+      "relationshipName": "productSpecification",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

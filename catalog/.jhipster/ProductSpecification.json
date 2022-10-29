@@ -1,0 +1,122 @@
+{
+  "applications": ["catalog", "specification"],
+  "changelogDate": "20221029214645",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "product_specification",
+  "fields": [
+    {
+      "fieldName": "brand",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "href",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "id",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isBundle",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "lastUpdate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lifecycleStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "validForFrom",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "validForTo",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "version",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "schemaLocation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ProductSpecification",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "targetProductSchema",
+      "otherEntityRelationshipName": "productSpecification",
+      "relationshipName": "targetProductSchema",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "resourceSpecificationRef",
+      "otherEntityRelationshipName": "productSpecification",
+      "relationshipName": "resourceSpecificationRef",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "attachmentRefOrValue",
+      "otherEntityRelationshipName": "productSpecification",
+      "relationshipName": "attachmentRefOrValue",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "relatedParty",
+      "otherEntityRelationshipName": "productSpecification",
+      "relationshipName": "relatedParty",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "serviceSpecificationRef",
+      "otherEntityRelationshipName": "productSpecification",
+      "relationshipName": "serviceSpecificationRef",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "productSpecificationRelationship",
+      "otherEntityRelationshipName": "productSpecification",
+      "relationshipName": "productSpecificationRelationship",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "bundledProductSpecification",
+      "otherEntityRelationshipName": "productSpecification",
+      "relationshipName": "bundledProductSpecification",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "productSpecificationCharacteristic",
+      "otherEntityRelationshipName": "productSpecification",
+      "relationshipName": "productSpecificationCharacteristic",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}
