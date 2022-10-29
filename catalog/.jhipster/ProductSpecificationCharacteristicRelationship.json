@@ -1,0 +1,62 @@
+{
+  "applications": ["catalog", "specification"],
+  "changelogDate": "20221029214445",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "product_specification_characteristic_relationship",
+  "fields": [
+    {
+      "fieldName": "href",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "id",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "relationshipType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "validForFrom",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "validForTo",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "schemaLocation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ProductSpecificationCharacteristicRelationship",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "productSpecificationCharacteristic",
+      "otherEntityRelationshipName": "productSpecificationCharacteristicRelationship",
+      "relationshipName": "productSpecificationCharacteristic",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "characteristicValueSpecification",
+      "otherEntityRelationshipName": "productSpecificationCharacteristicRelationship",
+      "relationshipName": "characteristicValueSpecification",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

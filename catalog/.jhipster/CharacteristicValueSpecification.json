@@ -1,0 +1,60 @@
+{
+  "applications": ["catalog", "specification"],
+  "changelogDate": "20221029214345",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "characteristic_value_specification",
+  "fields": [
+    {
+      "fieldName": "isDefault",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "rangeInterval",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "regex",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "unitOfMeasure",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "validForFrom",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "validForTo",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "valueType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "schemaLocation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "CharacteristicValueSpecification",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "productSpecificationCharacteristicRelationship",
+      "otherEntityRelationshipName": "characteristicValueSpecification",
+      "relationshipName": "productSpecificationCharacteristicRelationship",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

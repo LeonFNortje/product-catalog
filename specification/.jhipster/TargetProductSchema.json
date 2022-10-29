@@ -1,0 +1,33 @@
+{
+  "name": "TargetProductSchema",
+  "fields": [
+    {
+      "fieldName": "schemaLocation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "productSpecification",
+      "otherEntityRelationshipName": "targetProductSchema",
+      "relationshipName": "productSpecification"
+    }
+  ],
+  "entityTableName": "target_product_schema",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": [
+    "catalog",
+    "specification"
+  ]
+}
