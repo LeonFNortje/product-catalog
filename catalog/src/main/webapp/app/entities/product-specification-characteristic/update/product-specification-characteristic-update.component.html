@@ -1,0 +1,237 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-product-specification-characteristic-heading"
+        data-cy="ProductSpecificationCharacteristicCreateUpdateHeading"
+        jhiTranslate="catalogApp.productSpecificationCharacteristic.home.createOrEditLabel"
+      >
+        Create or edit a Product Specification Characteristic
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="catalogApp.productSpecificationCharacteristic.configurable" for="field_configurable"
+            >Configurable</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="configurable"
+            id="field_configurable"
+            data-cy="configurable"
+            formControlName="configurable"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="catalogApp.productSpecificationCharacteristic.description" for="field_description"
+            >Description</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="catalogApp.productSpecificationCharacteristic.extensible" for="field_extensible"
+            >Extensible</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="extensible"
+            id="field_extensible"
+            data-cy="extensible"
+            formControlName="extensible"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="catalogApp.productSpecificationCharacteristic.id" for="field_id">Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="id"
+            id="field_id"
+            data-cy="id"
+            formControlName="id"
+            [readonly]="editForm.get('id')!.value != null"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="catalogApp.productSpecificationCharacteristic.isUnique" for="field_isUnique"
+            >Is Unique</label
+          >
+          <input type="checkbox" class="form-check" name="isUnique" id="field_isUnique" data-cy="isUnique" formControlName="isUnique" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="catalogApp.productSpecificationCharacteristic.maxCardinality" for="field_maxCardinality"
+            >Max Cardinality</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="maxCardinality"
+            id="field_maxCardinality"
+            data-cy="maxCardinality"
+            formControlName="maxCardinality"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="catalogApp.productSpecificationCharacteristic.minCardinality" for="field_minCardinality"
+            >Min Cardinality</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="minCardinality"
+            id="field_minCardinality"
+            data-cy="minCardinality"
+            formControlName="minCardinality"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="catalogApp.productSpecificationCharacteristic.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="catalogApp.productSpecificationCharacteristic.regex" for="field_regex">Regex</label>
+          <input type="text" class="form-control" name="regex" id="field_regex" data-cy="regex" formControlName="regex" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="catalogApp.productSpecificationCharacteristic.validForFrom" for="field_validForFrom"
+            >Valid For From</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_validForFrom"
+              data-cy="validForFrom"
+              type="datetime-local"
+              class="form-control"
+              name="validForFrom"
+              formControlName="validForFrom"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="catalogApp.productSpecificationCharacteristic.validForTo" for="field_validForTo"
+            >Valid For To</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_validForTo"
+              data-cy="validForTo"
+              type="datetime-local"
+              class="form-control"
+              name="validForTo"
+              formControlName="validForTo"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="catalogApp.productSpecificationCharacteristic.valueType" for="field_valueType"
+            >Value Type</label
+          >
+          <input type="text" class="form-control" name="valueType" id="field_valueType" data-cy="valueType" formControlName="valueType" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="catalogApp.productSpecificationCharacteristic.schemaLocation" for="field_schemaLocation"
+            >Schema Location</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="schemaLocation"
+            id="field_schemaLocation"
+            data-cy="schemaLocation"
+            formControlName="schemaLocation"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="catalogApp.productSpecificationCharacteristic.type" for="field_type">Type</label>
+          <input type="text" class="form-control" name="type" id="field_type" data-cy="type" formControlName="type" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="catalogApp.productSpecificationCharacteristic.valueSchemaLocation"
+            for="field_valueSchemaLocation"
+            >Value Schema Location</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="valueSchemaLocation"
+            id="field_valueSchemaLocation"
+            data-cy="valueSchemaLocation"
+            formControlName="valueSchemaLocation"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="catalogApp.productSpecificationCharacteristic.productSpecificationCharacteristicRelationship"
+            for="field_productSpecificationCharacteristicRelationship"
+            >Product Specification Characteristic Relationship</label
+          >
+          <select
+            class="form-control"
+            id="field_productSpecificationCharacteristicRelationship"
+            data-cy="productSpecificationCharacteristicRelationship"
+            name="productSpecificationCharacteristicRelationship"
+            formControlName="productSpecificationCharacteristicRelationship"
+            [compareWith]="compareProductSpecificationCharacteristicRelationship"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="productSpecificationCharacteristicRelationshipOption"
+              *ngFor="
+                let productSpecificationCharacteristicRelationshipOption of productSpecificationCharacteristicRelationshipsSharedCollection
+              "
+            >
+              {{ productSpecificationCharacteristicRelationshipOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

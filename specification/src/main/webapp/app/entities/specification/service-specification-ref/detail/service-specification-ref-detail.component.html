@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="serviceSpecificationRef">
+      <h2 data-cy="serviceSpecificationRefDetailsHeading">
+        <span jhiTranslate="specificationApp.specificationServiceSpecificationRef.detail.title">Service Specification Ref</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="specificationApp.specificationServiceSpecificationRef.href">Href</span></dt>
+        <dd>
+          <span>{{ serviceSpecificationRef.href }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationServiceSpecificationRef.id">Id</span></dt>
+        <dd>
+          <span>{{ serviceSpecificationRef.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationServiceSpecificationRef.name">Name</span></dt>
+        <dd>
+          <span>{{ serviceSpecificationRef.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationServiceSpecificationRef.version">Version</span></dt>
+        <dd>
+          <span>{{ serviceSpecificationRef.version }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationServiceSpecificationRef.schemaLocation">Schema Location</span></dt>
+        <dd>
+          <span>{{ serviceSpecificationRef.schemaLocation }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationServiceSpecificationRef.type">Type</span></dt>
+        <dd>
+          <span>{{ serviceSpecificationRef.type }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/specification/service-specification-ref', serviceSpecificationRef.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

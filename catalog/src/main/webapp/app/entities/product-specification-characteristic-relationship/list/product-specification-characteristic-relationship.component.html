@@ -1,0 +1,168 @@
+<div>
+  <h2 id="page-heading" data-cy="ProductSpecificationCharacteristicRelationshipHeading">
+    <span jhiTranslate="catalogApp.productSpecificationCharacteristicRelationship.home.title"
+      >Product Specification Characteristic Relationships</span
+    >
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="catalogApp.productSpecificationCharacteristicRelationship.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-product-specification-characteristic-relationship"
+        [routerLink]="['/product-specification-characteristic-relationship/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="catalogApp.productSpecificationCharacteristicRelationship.home.createLabel">
+          Create a new Product Specification Characteristic Relationship
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="productSpecificationCharacteristicRelationships?.length === 0">
+    <span jhiTranslate="catalogApp.productSpecificationCharacteristicRelationship.home.notFound"
+      >No Product Specification Characteristic Relationships found</span
+    >
+  </div>
+
+  <div
+    class="table-responsive table-entities"
+    id="entities"
+    *ngIf="productSpecificationCharacteristicRelationships && productSpecificationCharacteristicRelationships.length > 0"
+  >
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="href">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristicRelationship.href">Href</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristicRelationship.id">Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristicRelationship.name">Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="relationshipType">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristicRelationship.relationshipType">Relationship Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="validForFrom">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristicRelationship.validForFrom">Valid For From</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="validForTo">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristicRelationship.validForTo">Valid For To</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="schemaLocation">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristicRelationship.schemaLocation">Schema Location</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="type">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristicRelationship.type">Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody
+        infinite-scroll
+        (scrolled)="loadPage(page + 1)"
+        [infiniteScrollDisabled]="page - 1 >= links['last']"
+        [infiniteScrollDistance]="0"
+      >
+        <tr
+          *ngFor="let productSpecificationCharacteristicRelationship of productSpecificationCharacteristicRelationships; trackBy: trackId"
+          data-cy="entityTable"
+        >
+          <td>{{ productSpecificationCharacteristicRelationship.href }}</td>
+          <td>
+            <a
+              [routerLink]="[
+                '/product-specification-characteristic-relationship',
+                productSpecificationCharacteristicRelationship.id,
+                'view'
+              ]"
+              >{{ productSpecificationCharacteristicRelationship.id }}</a
+            >
+          </td>
+          <td>{{ productSpecificationCharacteristicRelationship.name }}</td>
+          <td>{{ productSpecificationCharacteristicRelationship.relationshipType }}</td>
+          <td>{{ productSpecificationCharacteristicRelationship.validForFrom | formatMediumDatetime }}</td>
+          <td>{{ productSpecificationCharacteristicRelationship.validForTo | formatMediumDatetime }}</td>
+          <td>{{ productSpecificationCharacteristicRelationship.schemaLocation }}</td>
+          <td>{{ productSpecificationCharacteristicRelationship.type }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="[
+                  '/product-specification-characteristic-relationship',
+                  productSpecificationCharacteristicRelationship.id,
+                  'view'
+                ]"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="[
+                  '/product-specification-characteristic-relationship',
+                  productSpecificationCharacteristicRelationship.id,
+                  'edit'
+                ]"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button
+                type="submit"
+                (click)="delete(productSpecificationCharacteristicRelationship)"
+                class="btn btn-danger btn-sm"
+                data-cy="entityDeleteButton"
+              >
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity ProductSpecification.
+    -->
+    <changeSet id="20221029214926-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="target_product_schema_id"
+                                 baseTableName="product_specification"
+                                 constraintName="fk_product_specification__target_product_schema_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="target_product_schema"/>
+
+        <addForeignKeyConstraint baseColumnNames="resource_specification_ref_id"
+                                 baseTableName="product_specification"
+                                 constraintName="fk_product_specification__resource_specification_ref_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="resource_specification_ref"/>
+
+        <addForeignKeyConstraint baseColumnNames="attachment_ref_or_value_id"
+                                 baseTableName="product_specification"
+                                 constraintName="fk_product_specification__attachment_ref_or_value_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="attachment_ref_or_value"/>
+
+        <addForeignKeyConstraint baseColumnNames="related_party_id"
+                                 baseTableName="product_specification"
+                                 constraintName="fk_product_specification__related_party_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="related_party"/>
+
+        <addForeignKeyConstraint baseColumnNames="service_specification_ref_id"
+                                 baseTableName="product_specification"
+                                 constraintName="fk_product_specification__service_specification_ref_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service_specification_ref"/>
+
+        <addForeignKeyConstraint baseColumnNames="product_specification_relationship_id"
+                                 baseTableName="product_specification"
+                                 constraintName="fk_product_specification__product_specification_relations_e2_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product_specification_relationship"/>
+
+        <addForeignKeyConstraint baseColumnNames="bundled_product_specification_id"
+                                 baseTableName="product_specification"
+                                 constraintName="fk_product_specification__bundled_product_specification_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bundled_product_specification"/>
+
+        <addForeignKeyConstraint baseColumnNames="product_specification_characteristic_id"
+                                 baseTableName="product_specification"
+                                 constraintName="fk_product_specification__product_specification_character_58_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product_specification_characteristic"/>
+    </changeSet>
+</databaseChangeLog>

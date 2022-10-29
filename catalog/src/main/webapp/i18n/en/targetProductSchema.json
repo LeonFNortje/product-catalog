@@ -1,0 +1,26 @@
+{
+  "catalogApp": {
+    "targetProductSchema": {
+      "home": {
+        "title": "Target Product Schemas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Target Product Schema",
+        "createOrEditLabel": "Create or edit a Target Product Schema",
+        "notFound": "No Target Product Schemas found"
+      },
+      "created": "A new Target Product Schema is created with identifier {{ param }}",
+      "updated": "A Target Product Schema is updated with identifier {{ param }}",
+      "deleted": "A Target Product Schema is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Target Product Schema {{ id }}?"
+      },
+      "detail": {
+        "title": "Target Product Schema"
+      },
+      "id": "ID",
+      "schemaLocation": "Schema Location",
+      "type": "Type",
+      "productSpecification": "Product Specification"
+    }
+  }
+}

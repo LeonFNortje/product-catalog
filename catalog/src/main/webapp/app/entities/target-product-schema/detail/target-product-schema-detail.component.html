@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="targetProductSchema">
+      <h2 data-cy="targetProductSchemaDetailsHeading">
+        <span jhiTranslate="catalogApp.targetProductSchema.detail.title">Target Product Schema</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ targetProductSchema.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.targetProductSchema.schemaLocation">Schema Location</span></dt>
+        <dd>
+          <span>{{ targetProductSchema.schemaLocation }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.targetProductSchema.type">Type</span></dt>
+        <dd>
+          <span>{{ targetProductSchema.type }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/target-product-schema', targetProductSchema.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

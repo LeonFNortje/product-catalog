@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity ProductSpecificationCharacteristic.
+    -->
+    <changeSet id="20221029215526-1" author="jhipster">
+        <createTable tableName="product_specification_characteristic">
+            <column name="configurable" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="description" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="extensible" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="is_unique" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="max_cardinality" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="min_cardinality" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="regex" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="valid_for_from" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="valid_for_to" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="value_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="schema_location" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="value_schema_location" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="product_specification_characteristic_relationship_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="product_specification_characteristic" columnName="valid_for_from" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="product_specification_characteristic" columnName="valid_for_to" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20221029215526-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/product_specification_characteristic.csv"
+                  separator=";"
+                  tableName="product_specification_characteristic"
+                  usePreparedStatements="true">
+            <column name="configurable" type="boolean"/>
+            <column name="description" type="string"/>
+            <column name="extensible" type="boolean"/>
+            <column name="id" type="string"/>
+            <column name="is_unique" type="boolean"/>
+            <column name="max_cardinality" type="numeric"/>
+            <column name="min_cardinality" type="numeric"/>
+            <column name="name" type="string"/>
+            <column name="regex" type="string"/>
+            <column name="valid_for_from" type="date"/>
+            <column name="valid_for_to" type="date"/>
+            <column name="value_type" type="string"/>
+            <column name="schema_location" type="string"/>
+            <column name="type" type="string"/>
+            <column name="value_schema_location" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

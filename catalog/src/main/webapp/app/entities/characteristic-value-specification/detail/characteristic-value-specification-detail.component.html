@@ -1,0 +1,87 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="characteristicValueSpecification">
+      <h2 data-cy="characteristicValueSpecificationDetailsHeading">
+        <span jhiTranslate="catalogApp.characteristicValueSpecification.detail.title">Characteristic Value Specification</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ characteristicValueSpecification.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.characteristicValueSpecification.isDefault">Is Default</span></dt>
+        <dd>
+          <span>{{ characteristicValueSpecification.isDefault }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.characteristicValueSpecification.rangeInterval">Range Interval</span></dt>
+        <dd>
+          <span>{{ characteristicValueSpecification.rangeInterval }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.characteristicValueSpecification.regex">Regex</span></dt>
+        <dd>
+          <span>{{ characteristicValueSpecification.regex }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.characteristicValueSpecification.unitOfMeasure">Unit Of Measure</span></dt>
+        <dd>
+          <span>{{ characteristicValueSpecification.unitOfMeasure }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.characteristicValueSpecification.validForFrom">Valid For From</span></dt>
+        <dd>
+          <span>{{ characteristicValueSpecification.validForFrom | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.characteristicValueSpecification.validForTo">Valid For To</span></dt>
+        <dd>
+          <span>{{ characteristicValueSpecification.validForTo | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.characteristicValueSpecification.valueType">Value Type</span></dt>
+        <dd>
+          <span>{{ characteristicValueSpecification.valueType }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.characteristicValueSpecification.schemaLocation">Schema Location</span></dt>
+        <dd>
+          <span>{{ characteristicValueSpecification.schemaLocation }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.characteristicValueSpecification.type">Type</span></dt>
+        <dd>
+          <span>{{ characteristicValueSpecification.type }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="catalogApp.characteristicValueSpecification.productSpecificationCharacteristicRelationship"
+            >Product Specification Characteristic Relationship</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="characteristicValueSpecification.productSpecificationCharacteristicRelationship">
+            <a
+              [routerLink]="[
+                '/product-specification-characteristic-relationship',
+                characteristicValueSpecification.productSpecificationCharacteristicRelationship.id,
+                'view'
+              ]"
+              >{{ characteristicValueSpecification.productSpecificationCharacteristicRelationship.id }}</a
+            >
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/characteristic-value-specification', characteristicValueSpecification.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

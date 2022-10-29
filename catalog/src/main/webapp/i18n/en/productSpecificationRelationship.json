@@ -1,0 +1,31 @@
+{
+  "catalogApp": {
+    "productSpecificationRelationship": {
+      "home": {
+        "title": "Product Specification Relationships",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Product Specification Relationship",
+        "createOrEditLabel": "Create or edit a Product Specification Relationship",
+        "notFound": "No Product Specification Relationships found"
+      },
+      "created": "A new Product Specification Relationship is created with identifier {{ param }}",
+      "updated": "A Product Specification Relationship is updated with identifier {{ param }}",
+      "deleted": "A Product Specification Relationship is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Specification Relationship {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Specification Relationship"
+      },
+      "href": "Href",
+      "id": "Id",
+      "name": "Name",
+      "relationshipType": "Relationship Type",
+      "validForFrom": "Valid For From",
+      "validForTo": "Valid For To",
+      "schemaLocation": "Schema Location",
+      "type": "Type",
+      "productSpecification": "Product Specification"
+    }
+  }
+}

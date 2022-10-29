@@ -1,0 +1,39 @@
+{
+  "catalogApp": {
+    "productSpecificationCharacteristic": {
+      "home": {
+        "title": "Product Specification Characteristics",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Product Specification Characteristic",
+        "createOrEditLabel": "Create or edit a Product Specification Characteristic",
+        "notFound": "No Product Specification Characteristics found"
+      },
+      "created": "A new Product Specification Characteristic is created with identifier {{ param }}",
+      "updated": "A Product Specification Characteristic is updated with identifier {{ param }}",
+      "deleted": "A Product Specification Characteristic is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Specification Characteristic {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Specification Characteristic"
+      },
+      "configurable": "Configurable",
+      "description": "Description",
+      "extensible": "Extensible",
+      "id": "Id",
+      "isUnique": "Is Unique",
+      "maxCardinality": "Max Cardinality",
+      "minCardinality": "Min Cardinality",
+      "name": "Name",
+      "regex": "Regex",
+      "validForFrom": "Valid For From",
+      "validForTo": "Valid For To",
+      "valueType": "Value Type",
+      "schemaLocation": "Schema Location",
+      "type": "Type",
+      "valueSchemaLocation": "Value Schema Location",
+      "productSpecification": "Product Specification",
+      "productSpecificationCharacteristicRelationship": "Product Specification Characteristic Relationship"
+    }
+  }
+}

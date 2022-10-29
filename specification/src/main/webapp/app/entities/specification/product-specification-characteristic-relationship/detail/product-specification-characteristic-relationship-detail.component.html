@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="productSpecificationCharacteristicRelationship">
+      <h2 data-cy="productSpecificationCharacteristicRelationshipDetailsHeading">
+        <span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristicRelationship.detail.title"
+          >Product Specification Characteristic Relationship</span
+        >
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristicRelationship.href">Href</span></dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristicRelationship.href }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristicRelationship.id">Id</span></dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristicRelationship.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristicRelationship.name">Name</span></dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristicRelationship.name }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristicRelationship.relationshipType"
+            >Relationship Type</span
+          >
+        </dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristicRelationship.relationshipType }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristicRelationship.validForFrom"
+            >Valid For From</span
+          >
+        </dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristicRelationship.validForFrom | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristicRelationship.validForTo">Valid For To</span>
+        </dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristicRelationship.validForTo | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristicRelationship.schemaLocation"
+            >Schema Location</span
+          >
+        </dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristicRelationship.schemaLocation }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristicRelationship.type">Type</span></dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristicRelationship.type }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="[
+          '/specification/product-specification-characteristic-relationship',
+          productSpecificationCharacteristicRelationship.id,
+          'edit'
+        ]"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

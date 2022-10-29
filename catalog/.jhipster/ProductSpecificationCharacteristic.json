@@ -1,0 +1,90 @@
+{
+  "applications": ["catalog", "specification"],
+  "changelogDate": "20221029215526",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "product_specification_characteristic",
+  "fields": [
+    {
+      "fieldName": "configurable",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "extensible",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "id",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isUnique",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "maxCardinality",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "minCardinality",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "regex",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "validForFrom",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "validForTo",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "valueType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "schemaLocation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valueSchemaLocation",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ProductSpecificationCharacteristic",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "productSpecification",
+      "otherEntityRelationshipName": "productSpecificationCharacteristic",
+      "relationshipName": "productSpecification",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "productSpecificationCharacteristicRelationship",
+      "otherEntityRelationshipName": "productSpecificationCharacteristic",
+      "relationshipName": "productSpecificationCharacteristicRelationship",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

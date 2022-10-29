@@ -1,0 +1,29 @@
+{
+  "specificationApp": {
+    "specificationServiceSpecificationRef": {
+      "home": {
+        "title": "Service Specification Refs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Service Specification Ref",
+        "createOrEditLabel": "Create or edit a Service Specification Ref",
+        "notFound": "No Service Specification Refs found"
+      },
+      "created": "A new Service Specification Ref is created with identifier {{ param }}",
+      "updated": "A Service Specification Ref is updated with identifier {{ param }}",
+      "deleted": "A Service Specification Ref is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Service Specification Ref {{ id }}?"
+      },
+      "detail": {
+        "title": "Service Specification Ref"
+      },
+      "href": "Href",
+      "id": "Id",
+      "name": "Name",
+      "version": "Version",
+      "schemaLocation": "Schema Location",
+      "type": "Type",
+      "productSpecification": "Product Specification"
+    }
+  }
+}

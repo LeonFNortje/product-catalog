@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity CharacteristicValueSpecification.
+    -->
+    <changeSet id="20221029214626-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="product_specification_characteristic_relationship_id"
+                                 baseTableName="characteristic_value_specification"
+                                 constraintName="fk_characteristic_value_specifi__product_specification_ch_1d_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product_specification_characteristic_relationship"/>
+    </changeSet>
+</databaseChangeLog>

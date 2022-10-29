@@ -1,0 +1,217 @@
+<div>
+  <h2 id="page-heading" data-cy="ProductSpecificationCharacteristicHeading">
+    <span jhiTranslate="catalogApp.productSpecificationCharacteristic.home.title">Product Specification Characteristics</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="catalogApp.productSpecificationCharacteristic.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-product-specification-characteristic"
+        [routerLink]="['/product-specification-characteristic/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="catalogApp.productSpecificationCharacteristic.home.createLabel">
+          Create a new Product Specification Characteristic
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="productSpecificationCharacteristics?.length === 0">
+    <span jhiTranslate="catalogApp.productSpecificationCharacteristic.home.notFound">No Product Specification Characteristics found</span>
+  </div>
+
+  <div
+    class="table-responsive table-entities"
+    id="entities"
+    *ngIf="productSpecificationCharacteristics && productSpecificationCharacteristics.length > 0"
+  >
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="configurable">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristic.configurable">Configurable</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristic.description">Description</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="extensible">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristic.extensible">Extensible</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristic.id">Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isUnique">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristic.isUnique">Is Unique</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="maxCardinality">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristic.maxCardinality">Max Cardinality</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="minCardinality">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristic.minCardinality">Min Cardinality</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristic.name">Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="regex">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristic.regex">Regex</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="validForFrom">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristic.validForFrom">Valid For From</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="validForTo">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristic.validForTo">Valid For To</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="valueType">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristic.valueType">Value Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="schemaLocation">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristic.schemaLocation">Schema Location</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="type">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristic.type">Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="valueSchemaLocation">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristic.valueSchemaLocation">Value Schema Location</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="productSpecificationCharacteristicRelationship.id">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.productSpecificationCharacteristic.productSpecificationCharacteristicRelationship"
+                >Product Specification Characteristic Relationship</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody
+        infinite-scroll
+        (scrolled)="loadPage(page + 1)"
+        [infiniteScrollDisabled]="page - 1 >= links['last']"
+        [infiniteScrollDistance]="0"
+      >
+        <tr *ngFor="let productSpecificationCharacteristic of productSpecificationCharacteristics; trackBy: trackId" data-cy="entityTable">
+          <td>{{ productSpecificationCharacteristic.configurable }}</td>
+          <td>{{ productSpecificationCharacteristic.description }}</td>
+          <td>{{ productSpecificationCharacteristic.extensible }}</td>
+          <td>
+            <a [routerLink]="['/product-specification-characteristic', productSpecificationCharacteristic.id, 'view']">{{
+              productSpecificationCharacteristic.id
+            }}</a>
+          </td>
+          <td>{{ productSpecificationCharacteristic.isUnique }}</td>
+          <td>{{ productSpecificationCharacteristic.maxCardinality }}</td>
+          <td>{{ productSpecificationCharacteristic.minCardinality }}</td>
+          <td>{{ productSpecificationCharacteristic.name }}</td>
+          <td>{{ productSpecificationCharacteristic.regex }}</td>
+          <td>{{ productSpecificationCharacteristic.validForFrom | formatMediumDatetime }}</td>
+          <td>{{ productSpecificationCharacteristic.validForTo | formatMediumDatetime }}</td>
+          <td>{{ productSpecificationCharacteristic.valueType }}</td>
+          <td>{{ productSpecificationCharacteristic.schemaLocation }}</td>
+          <td>{{ productSpecificationCharacteristic.type }}</td>
+          <td>{{ productSpecificationCharacteristic.valueSchemaLocation }}</td>
+          <td>
+            <div *ngIf="productSpecificationCharacteristic.productSpecificationCharacteristicRelationship">
+              <a
+                [routerLink]="[
+                  '/product-specification-characteristic-relationship',
+                  productSpecificationCharacteristic.productSpecificationCharacteristicRelationship.id,
+                  'view'
+                ]"
+                >{{ productSpecificationCharacteristic.productSpecificationCharacteristicRelationship.id }}</a
+              >
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/product-specification-characteristic', productSpecificationCharacteristic.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/product-specification-characteristic', productSpecificationCharacteristic.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button
+                type="submit"
+                (click)="delete(productSpecificationCharacteristic)"
+                class="btn btn-danger btn-sm"
+                data-cy="entityDeleteButton"
+              >
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
