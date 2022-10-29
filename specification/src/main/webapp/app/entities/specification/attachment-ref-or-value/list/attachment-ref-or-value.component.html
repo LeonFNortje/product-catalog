@@ -1,0 +1,179 @@
+<div>
+  <h2 id="page-heading" data-cy="AttachmentRefOrValueHeading">
+    <span jhiTranslate="specificationApp.specificationAttachmentRefOrValue.home.title">Attachment Ref Or Values</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="specificationApp.specificationAttachmentRefOrValue.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-attachment-ref-or-value"
+        [routerLink]="['/specification/attachment-ref-or-value/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="specificationApp.specificationAttachmentRefOrValue.home.createLabel">
+          Create a new Attachment Ref Or Value
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="attachmentRefOrValues?.length === 0">
+    <span jhiTranslate="specificationApp.specificationAttachmentRefOrValue.home.notFound">No Attachment Ref Or Values found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="attachmentRefOrValues && attachmentRefOrValues.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="attachmentType">
+            <div class="d-flex">
+              <span jhiTranslate="specificationApp.specificationAttachmentRefOrValue.attachmentType">Attachment Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="content">
+            <div class="d-flex">
+              <span jhiTranslate="specificationApp.specificationAttachmentRefOrValue.content">Content</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <div class="d-flex">
+              <span jhiTranslate="specificationApp.specificationAttachmentRefOrValue.description">Description</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="href">
+            <div class="d-flex">
+              <span jhiTranslate="specificationApp.specificationAttachmentRefOrValue.href">Href</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="specificationApp.specificationAttachmentRefOrValue.id">Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="mimeType">
+            <div class="d-flex">
+              <span jhiTranslate="specificationApp.specificationAttachmentRefOrValue.mimeType">Mime Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="specificationApp.specificationAttachmentRefOrValue.name">Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sizeOfBytes">
+            <div class="d-flex">
+              <span jhiTranslate="specificationApp.specificationAttachmentRefOrValue.sizeOfBytes">Size Of Bytes</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="url">
+            <div class="d-flex">
+              <span jhiTranslate="specificationApp.specificationAttachmentRefOrValue.url">Url</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="validForFrom">
+            <div class="d-flex">
+              <span jhiTranslate="specificationApp.specificationAttachmentRefOrValue.validForFrom">Valid For From</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="validForTo">
+            <div class="d-flex">
+              <span jhiTranslate="specificationApp.specificationAttachmentRefOrValue.validForTo">Valid For To</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="valueType">
+            <div class="d-flex">
+              <span jhiTranslate="specificationApp.specificationAttachmentRefOrValue.valueType">Value Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="schemaLocation">
+            <div class="d-flex">
+              <span jhiTranslate="specificationApp.specificationAttachmentRefOrValue.schemaLocation">Schema Location</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="type">
+            <div class="d-flex">
+              <span jhiTranslate="specificationApp.specificationAttachmentRefOrValue.type">Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody
+        infinite-scroll
+        (scrolled)="loadPage(page + 1)"
+        [infiniteScrollDisabled]="page - 1 >= links['last']"
+        [infiniteScrollDistance]="0"
+      >
+        <tr *ngFor="let attachmentRefOrValue of attachmentRefOrValues; trackBy: trackId" data-cy="entityTable">
+          <td>{{ attachmentRefOrValue.attachmentType }}</td>
+          <td>{{ attachmentRefOrValue.content }}</td>
+          <td>{{ attachmentRefOrValue.description }}</td>
+          <td>{{ attachmentRefOrValue.href }}</td>
+          <td>
+            <a [routerLink]="['/specification/attachment-ref-or-value', attachmentRefOrValue.id, 'view']">{{ attachmentRefOrValue.id }}</a>
+          </td>
+          <td>{{ attachmentRefOrValue.mimeType }}</td>
+          <td>{{ attachmentRefOrValue.name }}</td>
+          <td>{{ attachmentRefOrValue.sizeOfBytes }}</td>
+          <td>{{ attachmentRefOrValue.url }}</td>
+          <td>{{ attachmentRefOrValue.validForFrom | formatMediumDatetime }}</td>
+          <td>{{ attachmentRefOrValue.validForTo | formatMediumDatetime }}</td>
+          <td>{{ attachmentRefOrValue.valueType }}</td>
+          <td>{{ attachmentRefOrValue.schemaLocation }}</td>
+          <td>{{ attachmentRefOrValue.type }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/specification/attachment-ref-or-value', attachmentRefOrValue.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/specification/attachment-ref-or-value', attachmentRefOrValue.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(attachmentRefOrValue)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

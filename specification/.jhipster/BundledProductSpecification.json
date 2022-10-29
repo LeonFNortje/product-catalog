@@ -1,0 +1,50 @@
+{
+  "applications": ["catalog", "specification"],
+  "changelogDate": "20221029215026",
+  "clientRootFolder": "specification",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "bundled_product_specification",
+  "fields": [
+    {
+      "fieldName": "href",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "id",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lifecycleStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "schemaLocation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "specification",
+  "name": "BundledProductSpecification",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "productSpecification",
+      "otherEntityRelationshipName": "bundledProductSpecification",
+      "relationshipName": "productSpecification",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

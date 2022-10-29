@@ -1,0 +1,182 @@
+<div>
+  <h2 id="page-heading" data-cy="CharacteristicValueSpecificationHeading">
+    <span jhiTranslate="catalogApp.characteristicValueSpecification.home.title">Characteristic Value Specifications</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="catalogApp.characteristicValueSpecification.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-characteristic-value-specification"
+        [routerLink]="['/characteristic-value-specification/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="catalogApp.characteristicValueSpecification.home.createLabel">
+          Create a new Characteristic Value Specification
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="characteristicValueSpecifications?.length === 0">
+    <span jhiTranslate="catalogApp.characteristicValueSpecification.home.notFound">No Characteristic Value Specifications found</span>
+  </div>
+
+  <div
+    class="table-responsive table-entities"
+    id="entities"
+    *ngIf="characteristicValueSpecifications && characteristicValueSpecifications.length > 0"
+  >
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isDefault">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.characteristicValueSpecification.isDefault">Is Default</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="rangeInterval">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.characteristicValueSpecification.rangeInterval">Range Interval</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="regex">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.characteristicValueSpecification.regex">Regex</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="unitOfMeasure">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.characteristicValueSpecification.unitOfMeasure">Unit Of Measure</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="validForFrom">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.characteristicValueSpecification.validForFrom">Valid For From</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="validForTo">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.characteristicValueSpecification.validForTo">Valid For To</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="valueType">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.characteristicValueSpecification.valueType">Value Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="schemaLocation">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.characteristicValueSpecification.schemaLocation">Schema Location</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="type">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.characteristicValueSpecification.type">Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="productSpecificationCharacteristicRelationship.id">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.characteristicValueSpecification.productSpecificationCharacteristicRelationship"
+                >Product Specification Characteristic Relationship</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody
+        infinite-scroll
+        (scrolled)="loadPage(page + 1)"
+        [infiniteScrollDisabled]="page - 1 >= links['last']"
+        [infiniteScrollDistance]="0"
+      >
+        <tr *ngFor="let characteristicValueSpecification of characteristicValueSpecifications; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/characteristic-value-specification', characteristicValueSpecification.id, 'view']">{{
+              characteristicValueSpecification.id
+            }}</a>
+          </td>
+          <td>{{ characteristicValueSpecification.isDefault }}</td>
+          <td>{{ characteristicValueSpecification.rangeInterval }}</td>
+          <td>{{ characteristicValueSpecification.regex }}</td>
+          <td>{{ characteristicValueSpecification.unitOfMeasure }}</td>
+          <td>{{ characteristicValueSpecification.validForFrom | formatMediumDatetime }}</td>
+          <td>{{ characteristicValueSpecification.validForTo | formatMediumDatetime }}</td>
+          <td>{{ characteristicValueSpecification.valueType }}</td>
+          <td>{{ characteristicValueSpecification.schemaLocation }}</td>
+          <td>{{ characteristicValueSpecification.type }}</td>
+          <td>
+            <div *ngIf="characteristicValueSpecification.productSpecificationCharacteristicRelationship">
+              <a
+                [routerLink]="[
+                  '/product-specification-characteristic-relationship',
+                  characteristicValueSpecification.productSpecificationCharacteristicRelationship.id,
+                  'view'
+                ]"
+                >{{ characteristicValueSpecification.productSpecificationCharacteristicRelationship.id }}</a
+              >
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/characteristic-value-specification', characteristicValueSpecification.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/characteristic-value-specification', characteristicValueSpecification.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button
+                type="submit"
+                (click)="delete(characteristicValueSpecification)"
+                class="btn btn-danger btn-sm"
+                data-cy="entityDeleteButton"
+              >
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

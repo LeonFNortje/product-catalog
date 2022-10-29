@@ -1,0 +1,37 @@
+{
+  "specificationApp": {
+    "specificationAttachmentRefOrValue": {
+      "home": {
+        "title": "Attachment Ref Or Values",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Attachment Ref Or Value",
+        "createOrEditLabel": "Create or edit a Attachment Ref Or Value",
+        "notFound": "No Attachment Ref Or Values found"
+      },
+      "created": "A new Attachment Ref Or Value is created with identifier {{ param }}",
+      "updated": "A Attachment Ref Or Value is updated with identifier {{ param }}",
+      "deleted": "A Attachment Ref Or Value is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Attachment Ref Or Value {{ id }}?"
+      },
+      "detail": {
+        "title": "Attachment Ref Or Value"
+      },
+      "attachmentType": "Attachment Type",
+      "content": "Content",
+      "description": "Description",
+      "href": "Href",
+      "id": "Id",
+      "mimeType": "Mime Type",
+      "name": "Name",
+      "sizeOfBytes": "Size Of Bytes",
+      "url": "Url",
+      "validForFrom": "Valid For From",
+      "validForTo": "Valid For To",
+      "valueType": "Value Type",
+      "schemaLocation": "Schema Location",
+      "type": "Type",
+      "productSpecification": "Product Specification"
+    }
+  }
+}

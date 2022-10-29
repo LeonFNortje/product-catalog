@@ -1,0 +1,121 @@
+<div>
+  <h2 id="page-heading" data-cy="ResourceSpecificationRefHeading">
+    <span jhiTranslate="catalogApp.resourceSpecificationRef.home.title">Resource Specification Refs</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="catalogApp.resourceSpecificationRef.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-resource-specification-ref"
+        [routerLink]="['/resource-specification-ref/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="catalogApp.resourceSpecificationRef.home.createLabel"> Create a new Resource Specification Ref </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="resourceSpecificationRefs?.length === 0">
+    <span jhiTranslate="catalogApp.resourceSpecificationRef.home.notFound">No Resource Specification Refs found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="resourceSpecificationRefs && resourceSpecificationRefs.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="href">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.resourceSpecificationRef.href">Href</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.resourceSpecificationRef.id">Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.resourceSpecificationRef.name">Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="version">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.resourceSpecificationRef.version">Version</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="schemaLocation">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.resourceSpecificationRef.schemaLocation">Schema Location</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="type">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.resourceSpecificationRef.type">Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody
+        infinite-scroll
+        (scrolled)="loadPage(page + 1)"
+        [infiniteScrollDisabled]="page - 1 >= links['last']"
+        [infiniteScrollDistance]="0"
+      >
+        <tr *ngFor="let resourceSpecificationRef of resourceSpecificationRefs; trackBy: trackId" data-cy="entityTable">
+          <td>{{ resourceSpecificationRef.href }}</td>
+          <td>
+            <a [routerLink]="['/resource-specification-ref', resourceSpecificationRef.id, 'view']">{{ resourceSpecificationRef.id }}</a>
+          </td>
+          <td>{{ resourceSpecificationRef.name }}</td>
+          <td>{{ resourceSpecificationRef.version }}</td>
+          <td>{{ resourceSpecificationRef.schemaLocation }}</td>
+          <td>{{ resourceSpecificationRef.type }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/resource-specification-ref', resourceSpecificationRef.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/resource-specification-ref', resourceSpecificationRef.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(resourceSpecificationRef)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

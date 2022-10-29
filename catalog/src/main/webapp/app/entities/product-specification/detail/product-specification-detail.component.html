@@ -1,0 +1,153 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="productSpecification">
+      <h2 data-cy="productSpecificationDetailsHeading">
+        <span jhiTranslate="catalogApp.productSpecification.detail.title">Product Specification</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="catalogApp.productSpecification.brand">Brand</span></dt>
+        <dd>
+          <span>{{ productSpecification.brand }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecification.description">Description</span></dt>
+        <dd>
+          <span>{{ productSpecification.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecification.href">Href</span></dt>
+        <dd>
+          <span>{{ productSpecification.href }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecification.id">Id</span></dt>
+        <dd>
+          <span>{{ productSpecification.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecification.name">Name</span></dt>
+        <dd>
+          <span>{{ productSpecification.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecification.isBundle">Is Bundle</span></dt>
+        <dd>
+          <span>{{ productSpecification.isBundle }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecification.lastUpdate">Last Update</span></dt>
+        <dd>
+          <span>{{ productSpecification.lastUpdate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecification.lifecycleStatus">Lifecycle Status</span></dt>
+        <dd>
+          <span>{{ productSpecification.lifecycleStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecification.productNumber">Product Number</span></dt>
+        <dd>
+          <span>{{ productSpecification.productNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecification.validForFrom">Valid For From</span></dt>
+        <dd>
+          <span>{{ productSpecification.validForFrom | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecification.validForTo">Valid For To</span></dt>
+        <dd>
+          <span>{{ productSpecification.validForTo | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecification.version">Version</span></dt>
+        <dd>
+          <span>{{ productSpecification.version }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecification.schemaLocation">Schema Location</span></dt>
+        <dd>
+          <span>{{ productSpecification.schemaLocation }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecification.type">Type</span></dt>
+        <dd>
+          <span>{{ productSpecification.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecification.targetProductSchema">Target Product Schema</span></dt>
+        <dd>
+          <div *ngIf="productSpecification.targetProductSchema">
+            <a [routerLink]="['/target-product-schema', productSpecification.targetProductSchema.id, 'view']">{{
+              productSpecification.targetProductSchema.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecification.resourceSpecificationRef">Resource Specification Ref</span></dt>
+        <dd>
+          <div *ngIf="productSpecification.resourceSpecificationRef">
+            <a [routerLink]="['/resource-specification-ref', productSpecification.resourceSpecificationRef.id, 'view']">{{
+              productSpecification.resourceSpecificationRef.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecification.attachmentRefOrValue">Attachment Ref Or Value</span></dt>
+        <dd>
+          <div *ngIf="productSpecification.attachmentRefOrValue">
+            <a [routerLink]="['/attachment-ref-or-value', productSpecification.attachmentRefOrValue.id, 'view']">{{
+              productSpecification.attachmentRefOrValue.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecification.relatedParty">Related Party</span></dt>
+        <dd>
+          <div *ngIf="productSpecification.relatedParty">
+            <a [routerLink]="['/related-party', productSpecification.relatedParty.id, 'view']">{{
+              productSpecification.relatedParty.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecification.serviceSpecificationRef">Service Specification Ref</span></dt>
+        <dd>
+          <div *ngIf="productSpecification.serviceSpecificationRef">
+            <a [routerLink]="['/service-specification-ref', productSpecification.serviceSpecificationRef.id, 'view']">{{
+              productSpecification.serviceSpecificationRef.id
+            }}</a>
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="catalogApp.productSpecification.productSpecificationRelationship">Product Specification Relationship</span>
+        </dt>
+        <dd>
+          <div *ngIf="productSpecification.productSpecificationRelationship">
+            <a [routerLink]="['/product-specification-relationship', productSpecification.productSpecificationRelationship.id, 'view']">{{
+              productSpecification.productSpecificationRelationship.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecification.bundledProductSpecification">Bundled Product Specification</span></dt>
+        <dd>
+          <div *ngIf="productSpecification.bundledProductSpecification">
+            <a [routerLink]="['/bundled-product-specification', productSpecification.bundledProductSpecification.id, 'view']">{{
+              productSpecification.bundledProductSpecification.id
+            }}</a>
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="catalogApp.productSpecification.productSpecificationCharacteristic"
+            >Product Specification Characteristic</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="productSpecification.productSpecificationCharacteristic">
+            <a
+              [routerLink]="['/product-specification-characteristic', productSpecification.productSpecificationCharacteristic.id, 'view']"
+              >{{ productSpecification.productSpecificationCharacteristic.id }}</a
+            >
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/product-specification', productSpecification.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

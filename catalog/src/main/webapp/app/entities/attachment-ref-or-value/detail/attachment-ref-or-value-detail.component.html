@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="attachmentRefOrValue">
+      <h2 data-cy="attachmentRefOrValueDetailsHeading">
+        <span jhiTranslate="catalogApp.attachmentRefOrValue.detail.title">Attachment Ref Or Value</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="catalogApp.attachmentRefOrValue.attachmentType">Attachment Type</span></dt>
+        <dd>
+          <span>{{ attachmentRefOrValue.attachmentType }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.attachmentRefOrValue.content">Content</span></dt>
+        <dd>
+          <span>{{ attachmentRefOrValue.content }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.attachmentRefOrValue.description">Description</span></dt>
+        <dd>
+          <span>{{ attachmentRefOrValue.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.attachmentRefOrValue.href">Href</span></dt>
+        <dd>
+          <span>{{ attachmentRefOrValue.href }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.attachmentRefOrValue.id">Id</span></dt>
+        <dd>
+          <span>{{ attachmentRefOrValue.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.attachmentRefOrValue.mimeType">Mime Type</span></dt>
+        <dd>
+          <span>{{ attachmentRefOrValue.mimeType }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.attachmentRefOrValue.name">Name</span></dt>
+        <dd>
+          <span>{{ attachmentRefOrValue.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.attachmentRefOrValue.sizeOfBytes">Size Of Bytes</span></dt>
+        <dd>
+          <span>{{ attachmentRefOrValue.sizeOfBytes }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.attachmentRefOrValue.url">Url</span></dt>
+        <dd>
+          <span>{{ attachmentRefOrValue.url }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.attachmentRefOrValue.validForFrom">Valid For From</span></dt>
+        <dd>
+          <span>{{ attachmentRefOrValue.validForFrom | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.attachmentRefOrValue.validForTo">Valid For To</span></dt>
+        <dd>
+          <span>{{ attachmentRefOrValue.validForTo | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.attachmentRefOrValue.valueType">Value Type</span></dt>
+        <dd>
+          <span>{{ attachmentRefOrValue.valueType }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.attachmentRefOrValue.schemaLocation">Schema Location</span></dt>
+        <dd>
+          <span>{{ attachmentRefOrValue.schemaLocation }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.attachmentRefOrValue.type">Type</span></dt>
+        <dd>
+          <span>{{ attachmentRefOrValue.type }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/attachment-ref-or-value', attachmentRefOrValue.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

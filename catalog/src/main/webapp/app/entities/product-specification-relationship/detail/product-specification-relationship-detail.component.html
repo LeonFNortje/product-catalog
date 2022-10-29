@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="productSpecificationRelationship">
+      <h2 data-cy="productSpecificationRelationshipDetailsHeading">
+        <span jhiTranslate="catalogApp.productSpecificationRelationship.detail.title">Product Specification Relationship</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="catalogApp.productSpecificationRelationship.href">Href</span></dt>
+        <dd>
+          <span>{{ productSpecificationRelationship.href }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecificationRelationship.id">Id</span></dt>
+        <dd>
+          <span>{{ productSpecificationRelationship.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecificationRelationship.name">Name</span></dt>
+        <dd>
+          <span>{{ productSpecificationRelationship.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecificationRelationship.relationshipType">Relationship Type</span></dt>
+        <dd>
+          <span>{{ productSpecificationRelationship.relationshipType }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecificationRelationship.validForFrom">Valid For From</span></dt>
+        <dd>
+          <span>{{ productSpecificationRelationship.validForFrom | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecificationRelationship.validForTo">Valid For To</span></dt>
+        <dd>
+          <span>{{ productSpecificationRelationship.validForTo | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecificationRelationship.schemaLocation">Schema Location</span></dt>
+        <dd>
+          <span>{{ productSpecificationRelationship.schemaLocation }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.productSpecificationRelationship.type">Type</span></dt>
+        <dd>
+          <span>{{ productSpecificationRelationship.type }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/product-specification-relationship', productSpecificationRelationship.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

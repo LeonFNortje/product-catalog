@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="resourceSpecificationRef">
+      <h2 data-cy="resourceSpecificationRefDetailsHeading">
+        <span jhiTranslate="specificationApp.specificationResourceSpecificationRef.detail.title">Resource Specification Ref</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="specificationApp.specificationResourceSpecificationRef.href">Href</span></dt>
+        <dd>
+          <span>{{ resourceSpecificationRef.href }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationResourceSpecificationRef.id">Id</span></dt>
+        <dd>
+          <span>{{ resourceSpecificationRef.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationResourceSpecificationRef.name">Name</span></dt>
+        <dd>
+          <span>{{ resourceSpecificationRef.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationResourceSpecificationRef.version">Version</span></dt>
+        <dd>
+          <span>{{ resourceSpecificationRef.version }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationResourceSpecificationRef.schemaLocation">Schema Location</span></dt>
+        <dd>
+          <span>{{ resourceSpecificationRef.schemaLocation }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationResourceSpecificationRef.type">Type</span></dt>
+        <dd>
+          <span>{{ resourceSpecificationRef.type }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/specification/resource-specification-ref', resourceSpecificationRef.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,114 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="productSpecificationCharacteristic">
+      <h2 data-cy="productSpecificationCharacteristicDetailsHeading">
+        <span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristic.detail.title"
+          >Product Specification Characteristic</span
+        >
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristic.configurable">Configurable</span></dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristic.configurable }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristic.description">Description</span></dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristic.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristic.extensible">Extensible</span></dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristic.extensible }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristic.id">Id</span></dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristic.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristic.isUnique">Is Unique</span></dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristic.isUnique }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristic.maxCardinality">Max Cardinality</span></dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristic.maxCardinality }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristic.minCardinality">Min Cardinality</span></dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristic.minCardinality }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristic.name">Name</span></dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristic.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristic.regex">Regex</span></dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristic.regex }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristic.validForFrom">Valid For From</span></dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristic.validForFrom | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristic.validForTo">Valid For To</span></dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristic.validForTo | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristic.valueType">Value Type</span></dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristic.valueType }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristic.schemaLocation">Schema Location</span></dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristic.schemaLocation }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristic.type">Type</span></dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristic.type }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="specificationApp.specificationProductSpecificationCharacteristic.valueSchemaLocation"
+            >Value Schema Location</span
+          >
+        </dt>
+        <dd>
+          <span>{{ productSpecificationCharacteristic.valueSchemaLocation }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="specificationApp.specificationProductSpecificationCharacteristic.productSpecificationCharacteristicRelationship"
+            >Product Specification Characteristic Relationship</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="productSpecificationCharacteristic.productSpecificationCharacteristicRelationship">
+            <a
+              [routerLink]="[
+                '/product-specification-characteristic-relationship',
+                productSpecificationCharacteristic.productSpecificationCharacteristicRelationship.id,
+                'view'
+              ]"
+              >{{ productSpecificationCharacteristic.productSpecificationCharacteristicRelationship.id }}</a
+            >
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/specification/product-specification-characteristic', productSpecificationCharacteristic.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

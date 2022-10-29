@@ -1,0 +1,44 @@
+{
+  "specificationApp": {
+    "specificationProductSpecification": {
+      "home": {
+        "title": "Product Specifications",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Product Specification",
+        "createOrEditLabel": "Create or edit a Product Specification",
+        "notFound": "No Product Specifications found"
+      },
+      "created": "A new Product Specification is created with identifier {{ param }}",
+      "updated": "A Product Specification is updated with identifier {{ param }}",
+      "deleted": "A Product Specification is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Specification {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Specification"
+      },
+      "brand": "Brand",
+      "description": "Description",
+      "href": "Href",
+      "id": "Id",
+      "name": "Name",
+      "isBundle": "Is Bundle",
+      "lastUpdate": "Last Update",
+      "lifecycleStatus": "Lifecycle Status",
+      "productNumber": "Product Number",
+      "validForFrom": "Valid For From",
+      "validForTo": "Valid For To",
+      "version": "Version",
+      "schemaLocation": "Schema Location",
+      "type": "Type",
+      "targetProductSchema": "Target Product Schema",
+      "resourceSpecificationRef": "Resource Specification Ref",
+      "attachmentRefOrValue": "Attachment Ref Or Value",
+      "relatedParty": "Related Party",
+      "serviceSpecificationRef": "Service Specification Ref",
+      "productSpecificationRelationship": "Product Specification Relationship",
+      "bundledProductSpecification": "Bundled Product Specification",
+      "productSpecificationCharacteristic": "Product Specification Characteristic"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "applications": ["catalog", "specification"],
+  "changelogDate": "20221029215326",
+  "clientRootFolder": "specification",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "target_product_schema",
+  "fields": [
+    {
+      "fieldName": "schemaLocation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "specification",
+  "name": "TargetProductSchema",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "productSpecification",
+      "otherEntityRelationshipName": "targetProductSchema",
+      "relationshipName": "productSpecification",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

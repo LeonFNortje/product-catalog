@@ -1,0 +1,29 @@
+{
+  "catalogApp": {
+    "resourceSpecificationRef": {
+      "home": {
+        "title": "Resource Specification Refs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Resource Specification Ref",
+        "createOrEditLabel": "Create or edit a Resource Specification Ref",
+        "notFound": "No Resource Specification Refs found"
+      },
+      "created": "A new Resource Specification Ref is created with identifier {{ param }}",
+      "updated": "A Resource Specification Ref is updated with identifier {{ param }}",
+      "deleted": "A Resource Specification Ref is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Resource Specification Ref {{ id }}?"
+      },
+      "detail": {
+        "title": "Resource Specification Ref"
+      },
+      "href": "Href",
+      "id": "Id",
+      "name": "Name",
+      "version": "Version",
+      "schemaLocation": "Schema Location",
+      "type": "Type",
+      "productSpecification": "Product Specification"
+    }
+  }
+}

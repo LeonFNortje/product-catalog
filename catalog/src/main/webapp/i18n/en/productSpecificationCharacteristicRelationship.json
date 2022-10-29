@@ -1,0 +1,32 @@
+{
+  "catalogApp": {
+    "productSpecificationCharacteristicRelationship": {
+      "home": {
+        "title": "Product Specification Characteristic Relationships",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Product Specification Characteristic Relationship",
+        "createOrEditLabel": "Create or edit a Product Specification Characteristic Relationship",
+        "notFound": "No Product Specification Characteristic Relationships found"
+      },
+      "created": "A new Product Specification Characteristic Relationship is created with identifier {{ param }}",
+      "updated": "A Product Specification Characteristic Relationship is updated with identifier {{ param }}",
+      "deleted": "A Product Specification Characteristic Relationship is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Specification Characteristic Relationship {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Specification Characteristic Relationship"
+      },
+      "href": "Href",
+      "id": "Id",
+      "name": "Name",
+      "relationshipType": "Relationship Type",
+      "validForFrom": "Valid For From",
+      "validForTo": "Valid For To",
+      "schemaLocation": "Schema Location",
+      "type": "Type",
+      "productSpecificationCharacteristic": "Product Specification Characteristic",
+      "characteristicValueSpecification": "Characteristic Value Specification"
+    }
+  }
+}

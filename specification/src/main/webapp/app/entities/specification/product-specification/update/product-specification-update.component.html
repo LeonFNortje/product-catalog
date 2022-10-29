@@ -1,0 +1,384 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-product-specification-heading"
+        data-cy="ProductSpecificationCreateUpdateHeading"
+        jhiTranslate="specificationApp.specificationProductSpecification.home.createOrEditLabel"
+      >
+        Create or edit a Product Specification
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="specificationApp.specificationProductSpecification.brand" for="field_brand">Brand</label>
+          <input type="text" class="form-control" name="brand" id="field_brand" data-cy="brand" formControlName="brand" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="specificationApp.specificationProductSpecification.description" for="field_description"
+            >Description</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="specificationApp.specificationProductSpecification.href" for="field_href">Href</label>
+          <input type="text" class="form-control" name="href" id="field_href" data-cy="href" formControlName="href" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="specificationApp.specificationProductSpecification.id" for="field_id">Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="id"
+            id="field_id"
+            data-cy="id"
+            formControlName="id"
+            [readonly]="editForm.get('id')!.value != null"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="specificationApp.specificationProductSpecification.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="specificationApp.specificationProductSpecification.isBundle" for="field_isBundle"
+            >Is Bundle</label
+          >
+          <input type="checkbox" class="form-check" name="isBundle" id="field_isBundle" data-cy="isBundle" formControlName="isBundle" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="specificationApp.specificationProductSpecification.lastUpdate" for="field_lastUpdate"
+            >Last Update</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_lastUpdate"
+              data-cy="lastUpdate"
+              type="datetime-local"
+              class="form-control"
+              name="lastUpdate"
+              formControlName="lastUpdate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="specificationApp.specificationProductSpecification.lifecycleStatus"
+            for="field_lifecycleStatus"
+            >Lifecycle Status</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lifecycleStatus"
+            id="field_lifecycleStatus"
+            data-cy="lifecycleStatus"
+            formControlName="lifecycleStatus"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="specificationApp.specificationProductSpecification.productNumber"
+            for="field_productNumber"
+            >Product Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="productNumber"
+            id="field_productNumber"
+            data-cy="productNumber"
+            formControlName="productNumber"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="specificationApp.specificationProductSpecification.validForFrom" for="field_validForFrom"
+            >Valid For From</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_validForFrom"
+              data-cy="validForFrom"
+              type="datetime-local"
+              class="form-control"
+              name="validForFrom"
+              formControlName="validForFrom"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="specificationApp.specificationProductSpecification.validForTo" for="field_validForTo"
+            >Valid For To</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_validForTo"
+              data-cy="validForTo"
+              type="datetime-local"
+              class="form-control"
+              name="validForTo"
+              formControlName="validForTo"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="specificationApp.specificationProductSpecification.version" for="field_version"
+            >Version</label
+          >
+          <input type="text" class="form-control" name="version" id="field_version" data-cy="version" formControlName="version" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="specificationApp.specificationProductSpecification.schemaLocation"
+            for="field_schemaLocation"
+            >Schema Location</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="schemaLocation"
+            id="field_schemaLocation"
+            data-cy="schemaLocation"
+            formControlName="schemaLocation"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="specificationApp.specificationProductSpecification.type" for="field_type">Type</label>
+          <input type="text" class="form-control" name="type" id="field_type" data-cy="type" formControlName="type" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="specificationApp.specificationProductSpecification.targetProductSchema"
+            for="field_targetProductSchema"
+            >Target Product Schema</label
+          >
+          <select
+            class="form-control"
+            id="field_targetProductSchema"
+            data-cy="targetProductSchema"
+            name="targetProductSchema"
+            formControlName="targetProductSchema"
+            [compareWith]="compareTargetProductSchema"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="targetProductSchemaOption" *ngFor="let targetProductSchemaOption of targetProductSchemasSharedCollection">
+              {{ targetProductSchemaOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="specificationApp.specificationProductSpecification.resourceSpecificationRef"
+            for="field_resourceSpecificationRef"
+            >Resource Specification Ref</label
+          >
+          <select
+            class="form-control"
+            id="field_resourceSpecificationRef"
+            data-cy="resourceSpecificationRef"
+            name="resourceSpecificationRef"
+            formControlName="resourceSpecificationRef"
+            [compareWith]="compareResourceSpecificationRef"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="resourceSpecificationRefOption"
+              *ngFor="let resourceSpecificationRefOption of resourceSpecificationRefsSharedCollection"
+            >
+              {{ resourceSpecificationRefOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="specificationApp.specificationProductSpecification.attachmentRefOrValue"
+            for="field_attachmentRefOrValue"
+            >Attachment Ref Or Value</label
+          >
+          <select
+            class="form-control"
+            id="field_attachmentRefOrValue"
+            data-cy="attachmentRefOrValue"
+            name="attachmentRefOrValue"
+            formControlName="attachmentRefOrValue"
+            [compareWith]="compareAttachmentRefOrValue"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="attachmentRefOrValueOption" *ngFor="let attachmentRefOrValueOption of attachmentRefOrValuesSharedCollection">
+              {{ attachmentRefOrValueOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="specificationApp.specificationProductSpecification.relatedParty" for="field_relatedParty"
+            >Related Party</label
+          >
+          <select
+            class="form-control"
+            id="field_relatedParty"
+            data-cy="relatedParty"
+            name="relatedParty"
+            formControlName="relatedParty"
+            [compareWith]="compareRelatedParty"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="relatedPartyOption" *ngFor="let relatedPartyOption of relatedPartiesSharedCollection">
+              {{ relatedPartyOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="specificationApp.specificationProductSpecification.serviceSpecificationRef"
+            for="field_serviceSpecificationRef"
+            >Service Specification Ref</label
+          >
+          <select
+            class="form-control"
+            id="field_serviceSpecificationRef"
+            data-cy="serviceSpecificationRef"
+            name="serviceSpecificationRef"
+            formControlName="serviceSpecificationRef"
+            [compareWith]="compareServiceSpecificationRef"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="serviceSpecificationRefOption"
+              *ngFor="let serviceSpecificationRefOption of serviceSpecificationRefsSharedCollection"
+            >
+              {{ serviceSpecificationRefOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="specificationApp.specificationProductSpecification.productSpecificationRelationship"
+            for="field_productSpecificationRelationship"
+            >Product Specification Relationship</label
+          >
+          <select
+            class="form-control"
+            id="field_productSpecificationRelationship"
+            data-cy="productSpecificationRelationship"
+            name="productSpecificationRelationship"
+            formControlName="productSpecificationRelationship"
+            [compareWith]="compareProductSpecificationRelationship"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="productSpecificationRelationshipOption"
+              *ngFor="let productSpecificationRelationshipOption of productSpecificationRelationshipsSharedCollection"
+            >
+              {{ productSpecificationRelationshipOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="specificationApp.specificationProductSpecification.bundledProductSpecification"
+            for="field_bundledProductSpecification"
+            >Bundled Product Specification</label
+          >
+          <select
+            class="form-control"
+            id="field_bundledProductSpecification"
+            data-cy="bundledProductSpecification"
+            name="bundledProductSpecification"
+            formControlName="bundledProductSpecification"
+            [compareWith]="compareBundledProductSpecification"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="bundledProductSpecificationOption"
+              *ngFor="let bundledProductSpecificationOption of bundledProductSpecificationsSharedCollection"
+            >
+              {{ bundledProductSpecificationOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="specificationApp.specificationProductSpecification.productSpecificationCharacteristic"
+            for="field_productSpecificationCharacteristic"
+            >Product Specification Characteristic</label
+          >
+          <select
+            class="form-control"
+            id="field_productSpecificationCharacteristic"
+            data-cy="productSpecificationCharacteristic"
+            name="productSpecificationCharacteristic"
+            formControlName="productSpecificationCharacteristic"
+            [compareWith]="compareProductSpecificationCharacteristic"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="productSpecificationCharacteristicOption"
+              *ngFor="let productSpecificationCharacteristicOption of productSpecificationCharacteristicsSharedCollection"
+            >
+              {{ productSpecificationCharacteristicOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

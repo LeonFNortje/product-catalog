@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="bundledProductSpecification">
+      <h2 data-cy="bundledProductSpecificationDetailsHeading">
+        <span jhiTranslate="specificationApp.specificationBundledProductSpecification.detail.title">Bundled Product Specification</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="specificationApp.specificationBundledProductSpecification.href">Href</span></dt>
+        <dd>
+          <span>{{ bundledProductSpecification.href }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationBundledProductSpecification.id">Id</span></dt>
+        <dd>
+          <span>{{ bundledProductSpecification.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationBundledProductSpecification.name">Name</span></dt>
+        <dd>
+          <span>{{ bundledProductSpecification.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationBundledProductSpecification.lifecycleStatus">Lifecycle Status</span></dt>
+        <dd>
+          <span>{{ bundledProductSpecification.lifecycleStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationBundledProductSpecification.schemaLocation">Schema Location</span></dt>
+        <dd>
+          <span>{{ bundledProductSpecification.schemaLocation }}</span>
+        </dd>
+        <dt><span jhiTranslate="specificationApp.specificationBundledProductSpecification.type">Type</span></dt>
+        <dd>
+          <span>{{ bundledProductSpecification.type }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/specification/bundled-product-specification', bundledProductSpecification.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

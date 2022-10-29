@@ -1,0 +1,29 @@
+{
+  "catalogApp": {
+    "bundledProductSpecification": {
+      "home": {
+        "title": "Bundled Product Specifications",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Bundled Product Specification",
+        "createOrEditLabel": "Create or edit a Bundled Product Specification",
+        "notFound": "No Bundled Product Specifications found"
+      },
+      "created": "A new Bundled Product Specification is created with identifier {{ param }}",
+      "updated": "A Bundled Product Specification is updated with identifier {{ param }}",
+      "deleted": "A Bundled Product Specification is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bundled Product Specification {{ id }}?"
+      },
+      "detail": {
+        "title": "Bundled Product Specification"
+      },
+      "href": "Href",
+      "id": "Id",
+      "name": "Name",
+      "lifecycleStatus": "Lifecycle Status",
+      "schemaLocation": "Schema Location",
+      "type": "Type",
+      "productSpecification": "Product Specification"
+    }
+  }
+}
