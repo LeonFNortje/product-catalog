@@ -1,0 +1,90 @@
+
+application {
+  config {
+    baseName catalog,
+    applicationType gateway,
+    packageName network.rain.product,
+    authenticationType oauth2,
+    prodDatabaseType postgresql,
+    clientFramework	angularX
+  }
+  entities *
+}
+
+application {
+  config {
+    baseName paymentmethod,
+    applicationType microservice,
+    packageName network.rain.account,
+    authenticationType oauth2,
+    clientFramework	angularX,
+    cacheProvider hazelcast,
+    databaseType sql,
+    prodDatabaseType postgresql,
+    serverPort 8081,
+    buildTool maven,
+    messageBroker kafka,
+    enableHibernateCache true,
+    testFrameworks [cypress],
+    websocket spring-websocket
+  }
+  entities PaymentMethod, RelatedPlace, RelatedParty, Event
+  dto * with mapstruct
+  service PaymentMethod with serviceClass
+  service PaymentMethod with serviceImpl
+}
+
+entity Event {
+ correlationId String,
+ description String,
+ domain String,
+ eventId String,
+ eventTime Instant,
+ eventType String,
+ href String,
+ id String,
+ priority String,
+ timeOccurred Instant,
+ title String
+}
+
+entity RelatedPlace {
+ id String,
+ href String,
+ name String,
+ role String,
+ schemaLocation String,
+ type String
+}
+
+entity RelatedParty {
+ id String,
+ href String,
+ name String,
+ role String,
+ schemaLocation String,
+ type String
+}
+
+entity PaymentMethod {
+ id String,
+ href String,
+ authorizationCode String,
+ description String,
+ isPreferred Boolean,
+ name String,
+ status String,
+ statusDate Instant,
+ statusReason String,
+ validForFrom Instant,
+ validForTo Instant,
+ schemaLocation String,
+ type String
+}
+
+relationship OneToMany {
+ RelatedPlace to PaymentMethod
+ RelatedParty to PaymentMethod
+ }
+    
+paginate * with infinite-scroll

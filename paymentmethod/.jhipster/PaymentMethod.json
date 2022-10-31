@@ -1,0 +1,84 @@
+{
+  "applications": ["catalog", "paymentmethod"],
+  "changelogDate": "20221031161905",
+  "clientRootFolder": "paymentmethod",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "payment_method",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "href",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "authorizationCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isPreferred",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "statusDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "statusReason",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "validForFrom",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "validForTo",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "schemaLocation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "paymentmethod",
+  "name": "PaymentMethod",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "relatedPlace",
+      "otherEntityRelationshipName": "paymentMethod",
+      "relationshipName": "relatedPlace",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "relatedParty",
+      "otherEntityRelationshipName": "paymentMethod",
+      "relationshipName": "relatedParty",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

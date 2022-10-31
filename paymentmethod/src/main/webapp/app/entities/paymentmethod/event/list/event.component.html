@@ -1,0 +1,156 @@
+<div>
+  <h2 id="page-heading" data-cy="EventHeading">
+    <span jhiTranslate="paymentmethodApp.paymentmethodEvent.home.title">Events</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="paymentmethodApp.paymentmethodEvent.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-event"
+        [routerLink]="['/paymentmethod/event/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="paymentmethodApp.paymentmethodEvent.home.createLabel"> Create a new Event </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="events?.length === 0">
+    <span jhiTranslate="paymentmethodApp.paymentmethodEvent.home.notFound">No Events found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="events && events.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="correlationId">
+            <div class="d-flex">
+              <span jhiTranslate="paymentmethodApp.paymentmethodEvent.correlationId">Correlation Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <div class="d-flex">
+              <span jhiTranslate="paymentmethodApp.paymentmethodEvent.description">Description</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="domain">
+            <div class="d-flex">
+              <span jhiTranslate="paymentmethodApp.paymentmethodEvent.domain">Domain</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="eventId">
+            <div class="d-flex">
+              <span jhiTranslate="paymentmethodApp.paymentmethodEvent.eventId">Event Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="eventTime">
+            <div class="d-flex">
+              <span jhiTranslate="paymentmethodApp.paymentmethodEvent.eventTime">Event Time</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="eventType">
+            <div class="d-flex">
+              <span jhiTranslate="paymentmethodApp.paymentmethodEvent.eventType">Event Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="href">
+            <div class="d-flex">
+              <span jhiTranslate="paymentmethodApp.paymentmethodEvent.href">Href</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="paymentmethodApp.paymentmethodEvent.id">Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="priority">
+            <div class="d-flex">
+              <span jhiTranslate="paymentmethodApp.paymentmethodEvent.priority">Priority</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="timeOccurred">
+            <div class="d-flex">
+              <span jhiTranslate="paymentmethodApp.paymentmethodEvent.timeOccurred">Time Occurred</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="title">
+            <div class="d-flex">
+              <span jhiTranslate="paymentmethodApp.paymentmethodEvent.title">Title</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody
+        infinite-scroll
+        (scrolled)="loadPage(page + 1)"
+        [infiniteScrollDisabled]="page - 1 >= links['last']"
+        [infiniteScrollDistance]="0"
+      >
+        <tr *ngFor="let event of events; trackBy: trackId" data-cy="entityTable">
+          <td>{{ event.correlationId }}</td>
+          <td>{{ event.description }}</td>
+          <td>{{ event.domain }}</td>
+          <td>{{ event.eventId }}</td>
+          <td>{{ event.eventTime | formatMediumDatetime }}</td>
+          <td>{{ event.eventType }}</td>
+          <td>{{ event.href }}</td>
+          <td>
+            <a [routerLink]="['/paymentmethod/event', event.id, 'view']">{{ event.id }}</a>
+          </td>
+          <td>{{ event.priority }}</td>
+          <td>{{ event.timeOccurred | formatMediumDatetime }}</td>
+          <td>{{ event.title }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/paymentmethod/event', event.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/paymentmethod/event', event.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(event)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

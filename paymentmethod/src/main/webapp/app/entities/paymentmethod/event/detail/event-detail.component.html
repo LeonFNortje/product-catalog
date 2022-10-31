@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="event">
+      <h2 data-cy="eventDetailsHeading"><span jhiTranslate="paymentmethodApp.paymentmethodEvent.detail.title">Event</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="paymentmethodApp.paymentmethodEvent.correlationId">Correlation Id</span></dt>
+        <dd>
+          <span>{{ event.correlationId }}</span>
+        </dd>
+        <dt><span jhiTranslate="paymentmethodApp.paymentmethodEvent.description">Description</span></dt>
+        <dd>
+          <span>{{ event.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="paymentmethodApp.paymentmethodEvent.domain">Domain</span></dt>
+        <dd>
+          <span>{{ event.domain }}</span>
+        </dd>
+        <dt><span jhiTranslate="paymentmethodApp.paymentmethodEvent.eventId">Event Id</span></dt>
+        <dd>
+          <span>{{ event.eventId }}</span>
+        </dd>
+        <dt><span jhiTranslate="paymentmethodApp.paymentmethodEvent.eventTime">Event Time</span></dt>
+        <dd>
+          <span>{{ event.eventTime | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="paymentmethodApp.paymentmethodEvent.eventType">Event Type</span></dt>
+        <dd>
+          <span>{{ event.eventType }}</span>
+        </dd>
+        <dt><span jhiTranslate="paymentmethodApp.paymentmethodEvent.href">Href</span></dt>
+        <dd>
+          <span>{{ event.href }}</span>
+        </dd>
+        <dt><span jhiTranslate="paymentmethodApp.paymentmethodEvent.id">Id</span></dt>
+        <dd>
+          <span>{{ event.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="paymentmethodApp.paymentmethodEvent.priority">Priority</span></dt>
+        <dd>
+          <span>{{ event.priority }}</span>
+        </dd>
+        <dt><span jhiTranslate="paymentmethodApp.paymentmethodEvent.timeOccurred">Time Occurred</span></dt>
+        <dd>
+          <span>{{ event.timeOccurred | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="paymentmethodApp.paymentmethodEvent.title">Title</span></dt>
+        <dd>
+          <span>{{ event.title }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/paymentmethod/event', event.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

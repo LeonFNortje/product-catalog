@@ -1,0 +1,48 @@
+{
+  "applications": ["catalog", "paymentmethod"],
+  "changelogDate": "20221031162105",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "related_place",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "href",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "role",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "schemaLocation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "RelatedPlace",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "paymentMethod",
+      "otherEntityRelationshipName": "relatedPlace",
+      "relationshipName": "paymentMethod",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

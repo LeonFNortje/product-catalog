@@ -1,0 +1,121 @@
+<div>
+  <h2 id="page-heading" data-cy="RelatedPlaceHeading">
+    <span jhiTranslate="catalogApp.relatedPlace.home.title">Related Places</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="catalogApp.relatedPlace.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-related-place"
+        [routerLink]="['/related-place/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="catalogApp.relatedPlace.home.createLabel"> Create a new Related Place </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="relatedPlaces?.length === 0">
+    <span jhiTranslate="catalogApp.relatedPlace.home.notFound">No Related Places found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="relatedPlaces && relatedPlaces.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.relatedPlace.id">Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="href">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.relatedPlace.href">Href</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.relatedPlace.name">Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="role">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.relatedPlace.role">Role</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="schemaLocation">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.relatedPlace.schemaLocation">Schema Location</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="type">
+            <div class="d-flex">
+              <span jhiTranslate="catalogApp.relatedPlace.type">Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody
+        infinite-scroll
+        (scrolled)="loadPage(page + 1)"
+        [infiniteScrollDisabled]="page - 1 >= links['last']"
+        [infiniteScrollDistance]="0"
+      >
+        <tr *ngFor="let relatedPlace of relatedPlaces; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/related-place', relatedPlace.id, 'view']">{{ relatedPlace.id }}</a>
+          </td>
+          <td>{{ relatedPlace.href }}</td>
+          <td>{{ relatedPlace.name }}</td>
+          <td>{{ relatedPlace.role }}</td>
+          <td>{{ relatedPlace.schemaLocation }}</td>
+          <td>{{ relatedPlace.type }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/related-place', relatedPlace.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/related-place', relatedPlace.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(relatedPlace)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
