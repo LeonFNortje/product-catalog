@@ -1,0 +1,36 @@
+{
+  "name": "TargetProductSchema",
+  "fields": [
+    {
+      "fieldName": "validDate",
+      "fieldType": "TimePeriod"
+    },
+    {
+      "fieldName": "schemaLocation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "productSpecification",
+      "otherEntityRelationshipName": "targetProductSchema",
+      "relationshipName": "productSpecification"
+    }
+  ],
+  "entityTableName": "target_product_schema",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": [
+    "catalog"
+  ]
+}
