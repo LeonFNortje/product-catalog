@@ -1,0 +1,117 @@
+{
+  "name": "ProductSpecification",
+  "fields": [
+    {
+      "fieldName": "brand",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "href",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "id",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isBundle",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "lastUpdate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lifecycleStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "validForFrom",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "validForTo",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "version",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "schemaLocation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "targetProductSchema",
+      "otherEntityRelationshipName": "productSpecification",
+      "relationshipName": "targetProductSchema"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "resourceSpecificationRef",
+      "otherEntityRelationshipName": "productSpecification",
+      "relationshipName": "resourceSpecificationRef"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "attachmentRefOrValue",
+      "otherEntityRelationshipName": "productSpecification",
+      "relationshipName": "attachmentRefOrValue"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "serviceSpecificationRef",
+      "otherEntityRelationshipName": "productSpecification",
+      "relationshipName": "serviceSpecificationRef"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "productSpecificationRelationship",
+      "otherEntityRelationshipName": "productSpecification",
+      "relationshipName": "productSpecificationRelationship"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "bundledProductSpecification",
+      "otherEntityRelationshipName": "productSpecification",
+      "relationshipName": "bundledProductSpecification"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "productSpecificationCharacteristic",
+      "otherEntityRelationshipName": "productSpecification",
+      "relationshipName": "productSpecificationCharacteristic"
+    }
+  ],
+  "entityTableName": "product_specification",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": [
+    "catalog",
+    "specification"
+  ]
+}

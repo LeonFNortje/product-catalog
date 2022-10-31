@@ -1,0 +1,49 @@
+{
+  "name": "RelatedPlace",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "href",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "role",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "schemaLocation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "paymentMethod",
+      "otherEntityRelationshipName": "relatedPlace",
+      "relationshipName": "paymentMethod"
+    }
+  ],
+  "entityTableName": "related_place",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": [
+    "catalog",
+    "paymentmethod"
+  ]
+}

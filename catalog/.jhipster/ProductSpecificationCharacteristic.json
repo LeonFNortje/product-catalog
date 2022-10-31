@@ -1,0 +1,90 @@
+{
+  "name": "ProductSpecificationCharacteristic",
+  "fields": [
+    {
+      "fieldName": "configurable",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "extensible",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "id",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isUnique",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "maxCardinality",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "minCardinality",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "regex",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "validForFrom",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "validForTo",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "valueType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "schemaLocation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valueSchemaLocation",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "productSpecification",
+      "otherEntityRelationshipName": "productSpecificationCharacteristic",
+      "relationshipName": "productSpecification"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "productSpecificationCharacteristicRelationship",
+      "otherEntityRelationshipName": "productSpecificationCharacteristic",
+      "relationshipName": "productSpecificationCharacteristicRelationship"
+    }
+  ],
+  "entityTableName": "product_specification_characteristic",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": [
+    "catalog"
+  ]
+}
