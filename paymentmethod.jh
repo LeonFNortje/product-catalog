@@ -1,0 +1,250 @@
+
+application {
+  config {
+    baseName catalog,
+    applicationType gateway,
+    packageName network.rain.product,
+    authenticationType oauth2,
+    prodDatabaseType postgresql,
+    clientFramework	angularX
+  }
+  entities *
+}
+
+application {
+  config {
+    baseName specification,
+    applicationType microservice,
+    packageName network.rain.account,
+    authenticationType oauth2,
+    clientFramework	angularX,
+    cacheProvider hazelcast,
+    databaseType sql,
+    prodDatabaseType postgresql,
+    serverPort 8081,
+    buildTool maven,
+    messageBroker kafka,
+    enableHibernateCache true,
+    testFrameworks [cypress],
+    websocket spring-websocket
+  }
+  entities ProductSpecification
+  dto * with mapstruct
+  service ProductSpecification with serviceClass
+  service ProductSpecification with serviceImpl
+}
+
+application {
+  config {
+    baseName paymentmethod,
+    applicationType microservice,
+    packageName network.rain.account,
+    authenticationType oauth2,
+    clientFramework	angularX,
+    cacheProvider hazelcast,
+    databaseType sql,
+    prodDatabaseType postgresql,
+    serverPort 8081,
+    buildTool maven,
+    messageBroker kafka,
+    enableHibernateCache true,
+    testFrameworks [cypress],
+    websocket spring-websocket
+  }
+  entities PaymentMethod, RelatedPlace, RelatedParty, Event
+  dto PaymentMethod, RelatedPlace, RelatedParty with mapstruct
+  service PaymentMethod with serviceClass
+  service PaymentMethod with serviceImpl
+}
+
+entity Event {
+ correlationId String,
+ description String,
+ domain String,
+ eventId String,
+ eventTime Instant,
+ eventType String,
+ href String,
+ id String,
+ priority String,
+ timeOccurred Instant,
+ title String
+}
+
+entity RelatedPlace {
+ id String,
+ href String,
+ name String,
+ role String,
+ schemaLocation String,
+ type String
+}
+
+entity RelatedParty {
+ id String,
+ href String,
+ name String,
+ role String,
+ schemaLocation String,
+ type String
+}
+
+entity PaymentMethod {
+ id String,
+ href String,
+ authorizationCode String,
+ description String,
+ isPreferred Boolean,
+ name String,
+ status String,
+ statusDate Instant,
+ statusReason String,
+ validForFrom Instant,
+ validForTo Instant,
+ schemaLocation String,
+ type String
+}
+
+entity TimePeriod {
+  startDate Instant
+  endDate Instant
+}
+
+entity TargetProductSchema {
+ validDate TimePeriod
+ schemaLocation String
+ type String
+}
+
+entity ResourceSpecificationRef {
+ href String
+ id String
+ name String
+ version String
+ schemaLocation String
+ type String
+}
+
+entity ServiceSpecificationRef {
+ href String
+ id String
+ name String
+ version String
+ schemaLocation String
+ type String
+}
+
+entity ProductSpecification {
+ brand String
+ description String
+ href String
+ id String
+ name String
+ isBundle Boolean
+ lastUpdate Instant
+ lifecycleStatus String
+ productNumber String
+ validForFrom Instant
+ validForTo Instant
+ version String
+ schemaLocation String
+ type String
+} 
+
+entity ProductSpecificationRelationship {
+ href String
+ id String
+ name String
+ relationshipType String
+ validForFrom Instant
+ validForTo Instant
+ schemaLocation String
+ type String
+}
+
+entity BundledProductSpecification {
+ href String
+ id String
+ name String
+ lifecycleStatus String
+ schemaLocation String
+ type String
+}
+
+
+entity ProductSpecificationCharacteristicRelationship {
+ href String
+ id String
+ name String
+ relationshipType String
+ validForFrom Instant
+ validForTo Instant
+ schemaLocation String
+ type String
+}
+
+
+entity CharacteristicValueSpecification {
+ isDefault Boolean
+ rangeInterval String
+ regex String
+ unitOfMeasure String
+ validForFrom Instant
+ validForTo Instant
+ valueType String
+ schemaLocation String
+ type String
+}
+
+
+entity ProductSpecificationCharacteristic {
+ configurable Boolean
+ description String
+ extensible Boolean
+ id String
+ isUnique Boolean
+ maxCardinality Integer
+ minCardinality Integer
+ name String
+ regex String
+ validForFrom Instant
+ validForTo Instant
+ valueType String
+ schemaLocation String
+ type String
+ valueSchemaLocation String
+}
+
+entity AttachmentRefOrValue {
+ attachmentType String
+ content String
+ description String
+ href String
+ id String
+ mimeType String
+ name String
+ sizeOfBytes Integer
+ url String
+ validForFrom Instant
+ validForTo Instant
+ valueType String
+ schemaLocation String
+ type String
+}
+
+relationship OneToMany {
+ RelatedPlace to PaymentMethod
+ RelatedParty to PaymentMethod
+ TargetProductSchema to ProductSpecification
+ ResourceSpecificationRef to ProductSpecification
+ AttachmentRefOrValue to ProductSpecification
+ RelatedParty to ProductSpecification
+ ServiceSpecificationRef to ProductSpecification
+ ProductSpecificationRelationship to ProductSpecification
+ BundledProductSpecification to ProductSpecification
+ ProductSpecificationCharacteristicRelationship to ProductSpecificationCharacteristic
+ ProductSpecificationCharacteristicRelationship to CharacteristicValueSpecification
+ ProductSpecificationCharacteristic to ProductSpecification
+ }
+    
+paginate * with infinite-scroll    
