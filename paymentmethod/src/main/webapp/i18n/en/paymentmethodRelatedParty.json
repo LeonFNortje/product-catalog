@@ -1,0 +1,29 @@
+{
+  "paymentmethodApp": {
+    "paymentmethodRelatedParty": {
+      "home": {
+        "title": "Related Parties",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Related Party",
+        "createOrEditLabel": "Create or edit a Related Party",
+        "notFound": "No Related Parties found"
+      },
+      "created": "A new Related Party is created with identifier {{ param }}",
+      "updated": "A Related Party is updated with identifier {{ param }}",
+      "deleted": "A Related Party is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Related Party {{ id }}?"
+      },
+      "detail": {
+        "title": "Related Party"
+      },
+      "id": "Id",
+      "href": "Href",
+      "name": "Name",
+      "role": "Role",
+      "schemaLocation": "Schema Location",
+      "type": "Type",
+      "paymentMethod": "Payment Method"
+    }
+  }
+}

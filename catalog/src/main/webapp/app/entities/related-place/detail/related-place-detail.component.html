@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="relatedPlace">
+      <h2 data-cy="relatedPlaceDetailsHeading"><span jhiTranslate="catalogApp.relatedPlace.detail.title">Related Place</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="catalogApp.relatedPlace.id">Id</span></dt>
+        <dd>
+          <span>{{ relatedPlace.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.relatedPlace.href">Href</span></dt>
+        <dd>
+          <span>{{ relatedPlace.href }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.relatedPlace.name">Name</span></dt>
+        <dd>
+          <span>{{ relatedPlace.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.relatedPlace.role">Role</span></dt>
+        <dd>
+          <span>{{ relatedPlace.role }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.relatedPlace.schemaLocation">Schema Location</span></dt>
+        <dd>
+          <span>{{ relatedPlace.schemaLocation }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.relatedPlace.type">Type</span></dt>
+        <dd>
+          <span>{{ relatedPlace.type }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/related-place', relatedPlace.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+{
+  "paymentmethodApp": {
+    "paymentmethodPaymentMethod": {
+      "home": {
+        "title": "Payment Methods",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Payment Method",
+        "createOrEditLabel": "Create or edit a Payment Method",
+        "notFound": "No Payment Methods found"
+      },
+      "created": "A new Payment Method is created with identifier {{ param }}",
+      "updated": "A Payment Method is updated with identifier {{ param }}",
+      "deleted": "A Payment Method is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Payment Method {{ id }}?"
+      },
+      "detail": {
+        "title": "Payment Method"
+      },
+      "id": "Id",
+      "href": "Href",
+      "authorizationCode": "Authorization Code",
+      "description": "Description",
+      "isPreferred": "Is Preferred",
+      "name": "Name",
+      "status": "Status",
+      "statusDate": "Status Date",
+      "statusReason": "Status Reason",
+      "validForFrom": "Valid For From",
+      "validForTo": "Valid For To",
+      "schemaLocation": "Schema Location",
+      "type": "Type",
+      "relatedPlace": "Related Place",
+      "relatedParty": "Related Party"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="event">
+      <h2 data-cy="eventDetailsHeading"><span jhiTranslate="catalogApp.event.detail.title">Event</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="catalogApp.event.correlationId">Correlation Id</span></dt>
+        <dd>
+          <span>{{ event.correlationId }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.event.description">Description</span></dt>
+        <dd>
+          <span>{{ event.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.event.domain">Domain</span></dt>
+        <dd>
+          <span>{{ event.domain }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.event.eventId">Event Id</span></dt>
+        <dd>
+          <span>{{ event.eventId }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.event.eventTime">Event Time</span></dt>
+        <dd>
+          <span>{{ event.eventTime | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.event.eventType">Event Type</span></dt>
+        <dd>
+          <span>{{ event.eventType }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.event.href">Href</span></dt>
+        <dd>
+          <span>{{ event.href }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.event.id">Id</span></dt>
+        <dd>
+          <span>{{ event.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.event.priority">Priority</span></dt>
+        <dd>
+          <span>{{ event.priority }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.event.timeOccurred">Time Occurred</span></dt>
+        <dd>
+          <span>{{ event.timeOccurred | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.event.title">Title</span></dt>
+        <dd>
+          <span>{{ event.title }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/event', event.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

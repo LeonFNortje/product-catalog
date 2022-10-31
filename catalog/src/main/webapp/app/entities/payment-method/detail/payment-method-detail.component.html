@@ -1,0 +1,88 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="paymentMethod">
+      <h2 data-cy="paymentMethodDetailsHeading"><span jhiTranslate="catalogApp.paymentMethod.detail.title">Payment Method</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="catalogApp.paymentMethod.id">Id</span></dt>
+        <dd>
+          <span>{{ paymentMethod.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.paymentMethod.href">Href</span></dt>
+        <dd>
+          <span>{{ paymentMethod.href }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.paymentMethod.authorizationCode">Authorization Code</span></dt>
+        <dd>
+          <span>{{ paymentMethod.authorizationCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.paymentMethod.description">Description</span></dt>
+        <dd>
+          <span>{{ paymentMethod.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.paymentMethod.isPreferred">Is Preferred</span></dt>
+        <dd>
+          <span>{{ paymentMethod.isPreferred }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.paymentMethod.name">Name</span></dt>
+        <dd>
+          <span>{{ paymentMethod.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.paymentMethod.status">Status</span></dt>
+        <dd>
+          <span>{{ paymentMethod.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.paymentMethod.statusDate">Status Date</span></dt>
+        <dd>
+          <span>{{ paymentMethod.statusDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.paymentMethod.statusReason">Status Reason</span></dt>
+        <dd>
+          <span>{{ paymentMethod.statusReason }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.paymentMethod.validForFrom">Valid For From</span></dt>
+        <dd>
+          <span>{{ paymentMethod.validForFrom | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.paymentMethod.validForTo">Valid For To</span></dt>
+        <dd>
+          <span>{{ paymentMethod.validForTo | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.paymentMethod.schemaLocation">Schema Location</span></dt>
+        <dd>
+          <span>{{ paymentMethod.schemaLocation }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.paymentMethod.type">Type</span></dt>
+        <dd>
+          <span>{{ paymentMethod.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.paymentMethod.relatedPlace">Related Place</span></dt>
+        <dd>
+          <div *ngIf="paymentMethod.relatedPlace">
+            <a [routerLink]="['/related-place', paymentMethod.relatedPlace.id, 'view']">{{ paymentMethod.relatedPlace.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="catalogApp.paymentMethod.relatedParty">Related Party</span></dt>
+        <dd>
+          <div *ngIf="paymentMethod.relatedParty">
+            <a [routerLink]="['/related-party', paymentMethod.relatedParty.id, 'view']">{{ paymentMethod.relatedParty.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/payment-method', paymentMethod.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
